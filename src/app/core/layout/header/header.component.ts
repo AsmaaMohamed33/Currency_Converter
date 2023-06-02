@@ -26,7 +26,7 @@ export class HeaderComponent {
     this.sideNavItem.toggle();
   }
 
-  openHome() {
+  EURtoGBP() {
     localStorage.setItem("from",this.eur )
     localStorage.setItem("to",this.gbp )
     localStorage.setItem("fromName",this.fromName )
