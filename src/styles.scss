@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../src/app/pages/home-page/styles/mixins.scss";
+@import "../src/app/pages/home-page/styles/default.scss";
+@import "../src/app/pages/home-page/styles/loading.scss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "currency-flags/dist/currency-flags.css";
+
+
+
+$blue:  rgba(85,88,218,1) ;
+$red: #ff5858;
+$bright-blue: rgba(95,209,249,1) ;
+
+$dirty-white: #EFEFEFFF;
+$brown: #3a3636;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+body, html {
+
+  padding: 0;
+  margin: 0;
+
+  background: radial-gradient( circle farthest-corner at 12.3% 19.3%, rgba(85,88,218,1)  0%, rgba(95,209,249,1) 100.2%);
+
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
