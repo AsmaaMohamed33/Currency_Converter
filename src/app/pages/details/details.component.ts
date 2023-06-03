@@ -1,10 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-import { LabelItem, Color } from 'chart.js';
-import { ChartOptions } from 'chart.js';
-import { ChartDataset } from 'chart.js';
-import { ChartService } from 'src/app/domine/chart/chart.service';
+;
 
 
 
@@ -21,27 +18,17 @@ export class DetailsComponent implements OnInit {
   public resultTo;
   fromName;
   chart: any;
-  currency1!: string;
-  currency2!: string;
-  rates!: any[];
   months: string[] = [];
-  public isResult = true
-  showChart: Boolean= false
-
-
-  currencies = ['USD', 'EUR', 'GBP'];
+  isResult = true
+  showChart: Boolean = false
   startDate = new Date('2022-01-01');
   endDate = new Date('2022-12-30');
   data: any;
-
   from;
   to;
   access_key
   fromRate;
   toRate;
-
-
-
 
   constructor() { }
 
@@ -52,7 +39,7 @@ export class DetailsComponent implements OnInit {
   }
 
   async onSubmit() {
-    this.showChart=true;
+    this.showChart = true;
     const apiUrl = 'https://api.exchangeratesapi.io';
     this.from = localStorage.getItem('fromChart')
     this.to = localStorage.getItem('toChart')
@@ -60,13 +47,13 @@ export class DetailsComponent implements OnInit {
     const endpoint = `/timeseries?access_key=${this.access_key}&start_date=${this.startDate}&end_date=${this.endDate}&symbols=${this.to}&base=${this.from}&places=3`;
     const data = await fetch(`${apiUrl}${endpoint}`)
       .then(response => response.json());
-      console.log(data)
-      
-      let currentDate = new Date(this.startDate);
-      while (currentDate <= this.endDate) {
-        this.months.push(currentDate.toLocaleString('default', { month: 'long' }));
-        currentDate.setMonth(currentDate.getMonth() + 1);
-      }
+    console.log(data)
+
+    let currentDate = new Date(this.startDate);
+    while (currentDate <= this.endDate) {
+      this.months.push(currentDate.toLocaleString('default', { month: 'long' }));
+      currentDate.setMonth(currentDate.getMonth() + 1);
+    }
     const monthlyRates = {};
     for (const date in data.rate) {
       const [year, month] = date.split("-").slice(0, 2);
@@ -74,8 +61,6 @@ export class DetailsComponent implements OnInit {
       if (!monthlyRates[year]) {
         monthlyRates[year] = {};
       }
-
-
       this.from = localStorage.getItem('from')
       this.to = localStorage.getItem('to')
       this.fromRate = localStorage.getItem("fromRate")
@@ -84,7 +69,6 @@ export class DetailsComponent implements OnInit {
     }
     const labels = Object.keys(monthlyRates).map(year => `${year}-12`);
 
-    // Create chart using Chart.js
     if (this.chart) {
       this.chart.destroy();
     }

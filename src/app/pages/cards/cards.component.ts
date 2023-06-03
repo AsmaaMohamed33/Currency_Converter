@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
 import { CurrencyServiceComponent } from 'src/app/domine/currency/currency-service.component copy';
 import { Currency } from 'src/app/domine/currency/models/Currency';
 
@@ -10,8 +9,6 @@ import { Currency } from 'src/app/domine/currency/models/Currency';
 })
 export class CardsComponent implements OnInit {
   @Input() currencie: any;
-  gridColumns = 3;
-  @Input() elements: any[] = [];
   @Input() changeCurrency;
   @Input() selectorId;
   @Input() resultFrom
@@ -23,8 +20,6 @@ export class CardsComponent implements OnInit {
 
 
   constructor(private service: CurrencyServiceComponent) { }
-
-
 
   ngOnInit(): void {
 

@@ -2,7 +2,6 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Currency } from './models/Currency';
 
-//import { CURRENCIES } from 'src/app/mock-currency';
 @Injectable({
   providedIn: 'root',
 })

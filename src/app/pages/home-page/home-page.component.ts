@@ -9,7 +9,6 @@ import { Currency } from 'src/app/domine/currency/models/Currency';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
-  title = 'currency-exchange';
   public isDataAvailable = false;
   public failedToLoad = false;
   _from;
@@ -18,7 +17,7 @@ export class HomePageComponent {
   public amount_value;
   @ViewChild('from') fromCmp;
   @ViewChild('to') toCmp;
-  @ViewChild('amount_input', { static: false }) amount_input!: ElementRef;fromNameTitle: any;
+  @ViewChild('amount_input', { static: false }) amount_input!: ElementRef; fromNameTitle: any;
   @ViewChild('submitBtn', { static: false }) submitBtn;
   @ViewChild('formExchange', { static: false }) formExchange;
   elements: any[] = []
@@ -37,8 +36,6 @@ export class HomePageComponent {
   currencie: any;
   @Input() value: boolean = true;
   @Input() fromValue: boolean = false;
-
-
 
 
   get from_symbol() {
@@ -135,7 +132,7 @@ export class HomePageComponent {
     localStorage.clear();
   }
 
-  ngAfterViewInit(): void { 
+  ngAfterViewInit(): void {
     this.checkValue()
   }
 
@@ -152,7 +149,7 @@ export class HomePageComponent {
       this.value = false
     } else {
       this.value = true
- 
+
     }
   }
 }
