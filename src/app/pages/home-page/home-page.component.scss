@@ -19,8 +19,9 @@ $brown: #3a3636;
   overflow: auto;
   height: 100%;
   width: 100%;
-  min-height: 590px;
+  min-height: 600px;
   max-width: none;
+
 
   @include extra-small {
     background-color: $dirty-white;
