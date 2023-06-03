@@ -1,11 +1,12 @@
-<app-home-page [detail]="detail" [card]="card" [fromName]="fromName" [fromValue]="fromValue" [resultFrom]="resultFrom" [resultTo]="resultTo"
-[isResult]="isResult">
+<app-home-page [detail]="detail" [card]="card" [fromName]="fromName" [fromValue]="fromValue" [resultFrom]="resultFrom"
+  [resultTo]="resultTo" [isResult]="isResult">
 
 </app-home-page>
 
-
+<div class="w-100 d-flex justify-content-center mb-5">
 <button mat-raised-button (click)="onSubmit()">Chart</button>
+</div>
 
-<div >
-    <canvas class="chart" id="canvas"></canvas>
-  </div>
+<div class="container" *ngIf="showChart">
+  <canvas class="chart" id="canvas"></canvas>
+</div>

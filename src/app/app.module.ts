@@ -6,15 +6,10 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ConfigService } from './core/services/config.service';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-export function configServiceFactory(
-  config: ConfigService
-): () => Promise<boolean> {
-  return (): Promise<boolean> => config.load();
-}
 
 @NgModule({
   declarations: [

@@ -1,26 +1,33 @@
 @media (min-width: 576px) {
-    .col-sm-4 {
-      flex: 0 0 33.333333%;
-      max-width: 33.333333%;
-    }
+  .col-sm-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
   }
+}
 
-   .car {
-    height: 200px;
-   }
+.car {
+  height: 200px;
+  border: 5px soild blue;
+  padding-top: 30px;
 
-   .card-text{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: blueviolet;
-    width: 100%;
-   }
+}
 
-   .result-from{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: rgb(72, 127, 236);
-    width: 100%;
-   }
+.currency-flag {
+  height: 40px;
+}
+
+.card-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(46, 8, 143);
+  width: 100%;
+}
+
+.result-from {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: rgb(72, 127, 236);
+  width: 100%;
+}

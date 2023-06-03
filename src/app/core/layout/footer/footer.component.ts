@@ -4,7 +4,7 @@ import { Component} from '@angular/core';
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styles: [
-    '.copyright-footer { min-height: 50px;  }',
+    '.copyright-footer { min-height: 50px; background-color:blue ; position:fixed;bottom:0px; width:100%; }',
   ],
 })
 

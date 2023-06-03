@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, OnInit, ViewChild} from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
 /*import {CURRENCIES} from "../mock-currency";*/
 import { Currency } from 'src/app/domine/currency/models/Currency';
 import { CurrencyServiceComponent } from 'src/app/domine/currency/currency-service.component copy';
@@ -7,7 +7,7 @@ import { CurrencyServiceComponent } from 'src/app/domine/currency/currency-servi
 @Component({
   selector: 'app-currency-selector',
   templateUrl: './currency-selector.component.html',
-  styleUrls: ['../home-page/styles/default.scss','./currency-selector.component.scss']
+  styleUrls: ['../home-page/styles/default.scss', './currency-selector.component.scss']
 })
 export class CurrencySelectorComponent implements OnInit {
 
@@ -22,11 +22,11 @@ export class CurrencySelectorComponent implements OnInit {
   public selectedCurrency;
   public elementCurrenciesList;
   public findCurrency;
-  public ignoreFocusOut=false;
+  public ignoreFocusOut = false;
   public noResultsFind = false;
-  @ViewChild('search_input', {static: false}) search_input;
+  @ViewChild('search_input', { static: false }) search_input;
 
-  constructor(private changeDetector: ChangeDetectorRef,  public service: CurrencyServiceComponent) {
+  constructor(private changeDetector: ChangeDetectorRef, public service: CurrencyServiceComponent) {
 
   }
 
@@ -34,7 +34,7 @@ export class CurrencySelectorComponent implements OnInit {
 
   public valueFinding() {
 
-    this.currencies=this.service.getCurrencies().filter(item =>
+    this.currencies = this.service.getCurrencies().filter(item =>
       item.name.toLowerCase().includes(this.findCurrency.toLowerCase())
       || item.full_name.toLowerCase().includes(this.findCurrency.toLowerCase())
     );
@@ -43,55 +43,49 @@ export class CurrencySelectorComponent implements OnInit {
   }
 
 
-  selectCurrency = (currency: Currency): void =>{
+  selectCurrency = (currency: Currency): void => {
     this.selectedCurrency = currency;
     this.changeCurrency(currency);
     this.HideDropdown();
-
     localStorage.setItem(this.selectorId, currency.name);
 
   }
 
-  ShowDropdown()
-  {
+  ShowDropdown() {
     console.log("showDropdown");
     this.edited = false;
-     this.elementCurrenciesList.className = "dropdown-menu scrollable-menu show";
+    this.elementCurrenciesList.className = "dropdown-menu scrollable-menu show";
   }
 
-  HideDropdown()
-  {
-    console.log("hideDropdown");
-   this.edited = true;
-   this.elementCurrenciesList.className = "dropdown-menu scrollable-menu";
+  HideDropdown() {
+    this.edited = true;
+    this.elementCurrenciesList.className = "dropdown-menu scrollable-menu";
   }
-
-
-  dropClick(){
-    this.findCurrency="";
+  dropClick() {
+    this.findCurrency = "";
     this.ShowDropdown();
     this.changeDetector.detectChanges();
     this.search_input.nativeElement.focus();
     this.valueFinding();
   }
 
-  focusOutInput(){
-    if(!this.ignoreFocusOut)
+  focusOutInput() {
+    if (!this.ignoreFocusOut)
       this.HideDropdown();
   }
 
-  private selectCurrencyOnStart(){
+  private selectCurrencyOnStart() {
     let data
     let localData = localStorage.getItem(this.selectorId);
-    if(localData)
-      data = this.service.getCurrencies().find(element => element.name==localData);
-    if(!data)
-      data = this.service.getCurrencies().find(element => element.name==(this.selectorId == 'from' ? 'EUR' : 'USD'));
-    if(data)
-    this.selectCurrency(data);
+    if (localData)
+      data = this.service.getCurrencies().find(element => element.name == localData);
+    if (!data)
+      data = this.service.getCurrencies().find(element => element.name == (this.selectorId == 'from' ? 'EUR' : 'USD'));
+    if (data)
+      this.selectCurrency(data);
   }
 
-  ngAfterViewInit(): void{
+  ngAfterViewInit(): void {
 
     this.elementCurrenciesList = document.getElementById('currenciesList ' + this.selectorId)
     this.selectCurrencyOnStart();

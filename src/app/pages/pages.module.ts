@@ -6,24 +6,13 @@ import { CurrenciesComponent } from './currency-selector/currencies/currencies.c
 import { CurrencySelectorComponent } from './currency-selector/currency-selector.component';
 import { CardsComponent } from './cards/cards.component';
 import { DetailsComponent } from './details/details.component';
-import { ChartComponent } from './chart/chart.component';
-
-
-
-
-
-
-
-
-
-
 
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'details', component: DetailsComponent },
-  { path: 'chart', component:   ChartComponent },
- 
+
+
 ];
 @NgModule({
   declarations: [
@@ -32,7 +21,7 @@ const routes: Routes = [
     CurrencySelectorComponent,
     CardsComponent,
     DetailsComponent,
-    ChartComponent,
+
 
 
   ],

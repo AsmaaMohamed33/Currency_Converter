@@ -4,7 +4,8 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { RouterModule } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -23,7 +24,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    FlexLayoutModule, 
+    FlexLayoutModule,
+    NgChartsModule 
 ],
 exports: [
   CommonModule,
@@ -32,6 +34,7 @@ exports: [
  FlexLayoutModule,
   RouterModule,
   HttpClientModule,
+  NgChartsModule
 
  
  

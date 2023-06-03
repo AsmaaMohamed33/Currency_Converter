@@ -13,16 +13,16 @@ import { FooterComponent } from './layout/footer/footer.component';
     RootComponent,
     FooterComponent,
     HeaderComponent
-  
+
   ],
-  imports: [ CommonModule, RouterModule , SharedModule],
+  imports: [CommonModule, RouterModule, SharedModule],
 })
 export class CoreModule {
-   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
       throw new Error(
         'CoreModule is already loaded. Import it in the AppModule only'
       );
     }
   }
- }
+}
